@@ -1,0 +1,19 @@
+[
+    {
+    "question": "hi",
+    "answer": "hi sir/madam , how can i help you?"
+  },
+  {
+    "question": "How do I book an appointment?",
+    "answer": "You can book an appointment by selecting your doctor  on the booking page."
+  },
+  
+  {
+    "question": "How can I cancel my appointment?",
+    "answer": "Log in to your account, go to 'My Appointments', and click 'Cancel'."
+  },
+  {
+    "question": "What are the clinic hours?",
+    "answer": "We are open from 9 AM to 6 PM, Monday through Saturday."
+  }
+]

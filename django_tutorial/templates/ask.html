@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Ask a Question{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-5">
+          <h2 class="card-title text-center mb-4">Ask a Question</h2>
+          <form id="ask-form" method="post" novalidate>
+            {% csrf_token %}
+            <div class="mb-4">
+              <label for="question" class="form-label fw-bold">How may I help you?</label>
+              <input type="text" class="form-control form-control-lg" id="question" name="question" placeholder="Type your question here..." required>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg fw-bold rounded-pill">Get Answer</button>
+            </div>
+          </form>
+          <hr class="my-4">
+          <div id="answer" class="p-3 bg-light rounded-3" style="min-height: 100px; font-size: 1.1rem; color: #333;">
+            <!-- Answer will appear here -->
+            <em></em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Example JavaScript for async form submission (optional)
+document.getElementById('ask-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const question = document.getElementById('question').value.trim();
+  const answerDiv = document.getElementById('answer');
+
+  if (!question) {
+    answerDiv.innerHTML = '<span class="text-danger">Please enter a question.</span>';
+    return;
+  }
+
+  answerDiv.innerHTML = 'Searching for the best answer...';
+
+  try {
+    const response = await fetch("{% url 'ai_qa_local' %}", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-CSRFToken': '{{ csrf_token }}'},
+      body: JSON.stringify({ question })
+    });
+
+    const data = await response.json();
+    answerDiv.textContent = data.answer;
+  } catch (error) {
+    answerDiv.innerHTML = '<span class="text-danger">Oops! Something went wrong. Please try again later.</span>';
+  }
+});
+</script>
+{% endblock %}

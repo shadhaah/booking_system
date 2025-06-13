@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="bg-light p-5 rounded-4 shadow-sm">
+    <h1 class="mb-4 text-primary fw-bold">Contact Us</h1>
+
+    <p class="lead">
+      We value your questions and feedback. Our team is here to assist you with scheduling appointments, answering inquiries, or addressing any concerns you may have.
+    </p>
+
+    <h2 class="mt-5 mb-3 text-secondary fw-semibold">Contact Information</h2>
+    <ul class="list-unstyled fs-5 mb-4">
+      <li><strong>Phone:</strong> 9767456534</li>
+      <li><strong>Email:</strong> <a href="mailto:info@yourclinic.com" class="text-decoration-none">info@yourclinic.com</a></li>
+      <li><strong>Address:</strong> Thalassery, Kannur, Kerala, India</li>
+    </ul>
+
+    <h2 class="mb-3 text-secondary fw-semibold">Office Hours</h2>
+    <table class="table table-bordered table-striped w-50">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday - Friday</td>
+          <td>8:00 AM – 6:00 PM</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>9:00 AM – 1:00 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="fs-5 mt-4">
+      For urgent matters outside office hours, please call our emergency contact number at <strong>0123456789</strong>.
+    </p>
+
+    <p class="fs-5">
+      We look forward to assisting you with your healthcare needs!
+    </p>
+  </div>
+</div>
+{% endblock %}
